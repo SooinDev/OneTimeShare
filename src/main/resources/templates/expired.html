@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>링크 만료</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🔒 일회성 데이터 공유</h1>
+  </header>
+
+  <div class="expired-container">
+    <div class="error-icon">✕</div>
+    <h3>링크가 만료되었습니다</h3>
+    <p th:text="${response.message}"></p>
+    <a href="/" class="secondary-btn">새 공유 만들기</a>
+  </div>
+</div>
+</body>
+</html>

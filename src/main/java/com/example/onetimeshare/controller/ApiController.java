@@ -20,8 +20,7 @@ public class ApiController {
     private final ShareService shareService;
 
     @PostMapping("/share")
-    public ResponseEntity<ShareResponse> createShare(
-            @Valid @RequestBody CreateShareRequest request, HttpServletRequest httpRequest) {
+    public ResponseEntity<ShareResponse> createShare(@Valid @RequestBody CreateShareRequest request, HttpServletRequest httpRequest) {
         ShareResponse response = shareService.createShare(request, httpRequest);
         return ResponseEntity.ok(response);
     }
