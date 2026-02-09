@@ -7,17 +7,34 @@
   <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div class="controls">
+  <button class="control-btn theme-toggle" id="themeToggle">🌙</button>
+  <div class="language-selector">
+    <button class="control-btn language-btn">
+      <span>🇰🇷</span><span>한국어</span>
+    </button>
+    <div class="language-dropdown">
+      <div class="language-option" data-lang="ko"><span>🇰🇷</span> 한국어</div>
+      <div class="language-option" data-lang="en"><span>🇺🇸</span> English</div>
+      <div class="language-option" data-lang="ja"><span>🇯🇵</span> 日本語</div>
+      <div class="language-option" data-lang="zh"><span>🇨🇳</span> 中文</div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <header>
-    <h1>🔒 일회성 데이터 공유</h1>
+    <h1 data-i18n="title">일회성 데이터 공유</h1>
   </header>
 
   <div class="expired-container">
     <div class="error-icon">✕</div>
-    <h3>링크가 만료되었습니다</h3>
+    <h3 data-i18n="expiredTitle">링크가 만료되었습니다</h3>
     <p th:text="${response.message}"></p>
-    <a href="/" class="secondary-btn">새 공유 만들기</a>
+    <a href="/" class="secondary-btn" data-i18n="newShareBtn">새 공유 만들기</a>
   </div>
 </div>
+
+<script th:src="@{/js/app.js}"></script>
 </body>
 </html>

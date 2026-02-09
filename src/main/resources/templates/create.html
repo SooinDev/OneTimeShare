@@ -7,26 +7,41 @@
   <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div class="controls">
+  <button class="control-btn theme-toggle" id="themeToggle">🌙</button>
+  <div class="language-selector">
+    <button class="control-btn language-btn">
+      <span>🇰🇷</span><span>한국어</span>
+    </button>
+    <div class="language-dropdown">
+      <div class="language-option" data-lang="ko"><span>🇰🇷</span> 한국어</div>
+      <div class="language-option" data-lang="en"><span>🇺🇸</span> English</div>
+      <div class="language-option" data-lang="ja"><span>🇯🇵</span> 日本語</div>
+      <div class="language-option" data-lang="zh"><span>🇨🇳</span> 中文</div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <header>
-    <h1>🔒 일회성 데이터 공유</h1>
-    <p>한 번만 볼 수 있는 안전한 데이터 공유 서비스</p>
+    <h1 data-i18n="title">일회성 데이터 공유</h1>
+    <p data-i18n="subtitle">한 번만 볼 수 있는 안전한 데이터 공유 서비스</p>
   </header>
 
   <div class="form-container">
     <div class="tab-buttons">
-      <button class="tab-btn active" data-tab="text">텍스트</button>
-      <button class="tab-btn" data-tab="password">비밀번호</button>
-      <button class="tab-btn" data-tab="file">파일</button>
+      <button class="tab-btn active" data-tab="text"><span data-i18n="tabText">텍스트</span></button>
+      <button class="tab-btn" data-tab="password"><span data-i18n="tabPassword">비밀번호</span></button>
+      <button class="tab-btn" data-tab="file"><span data-i18n="tabFile">파일</span></button>
     </div>
 
     <form id="shareForm">
       <div class="tab-content active" data-tab="text">
-        <textarea id="textContent" placeholder="공유할 텍스트를 입력하세요..." rows="8"></textarea>
+        <textarea id="textContent" rows="8"></textarea>
       </div>
 
       <div class="tab-content" data-tab="password">
-        <input type="text" id="passwordContent" placeholder="공유할 비밀번호를 입력하세요...">
+        <input type="text" id="passwordContent">
         <div class="password-strength" id="passwordStrength"></div>
       </div>
 
@@ -50,7 +65,7 @@
       </div>
 
       <div class="expiry-select">
-        <label>만료 시간:</label>
+        <label data-i18n="expiryLabel">만료 시간:</label>
         <select id="expiryTime">
           <option value="1">1시간</option>
           <option value="24" selected>24시간</option>
@@ -59,27 +74,27 @@
         </select>
       </div>
 
-      <button type="submit" class="submit-btn" id="submitBtn">
+      <button type="submit" class="submit-btn" id="submitBtn" data-i18n="createBtn">
         공유 링크 생성
       </button>
     </form>
 
     <div class="result-container" id="resultContainer" style="display: none;">
       <div class="success-icon">✓</div>
-      <h3>공유 링크가 생성되었습니다!</h3>
+      <h3 data-i18n="successTitle">공유 링크가 생성되었습니다!</h3>
       <div class="share-url-box">
         <input type="text" id="shareUrl" readonly>
-        <button type="button" id="copyBtn">복사</button>
+        <button type="button" id="copyBtn" data-i18n="copyBtn">복사</button>
       </div>
-      <div class="warning-box">
-        ⚠️ 이 링크는 한 번만 열 수 있습니다. 열람 후 자동으로 삭제됩니다.
+      <div class="warning-box" data-i18n="warningText">
+        이 링크는 한 번만 열 수 있습니다. 열람 후 자동으로 삭제됩니다.
       </div>
-      <button type="button" id="createNewBtn" class="secondary-btn">새로 만들기</button>
+      <button type="button" id="createNewBtn" class="secondary-btn" data-i18n="createNewBtn">새로 만들기</button>
     </div>
   </div>
 
   <footer>
-    <p>모든 데이터는 암호화되어 저장되며, 조회 시 즉시 삭제됩니다.</p>
+    <p data-i18n="footerText">모든 데이터는 암호화되어 저장되며 조회 시 즉시 삭제됩니다</p>
   </footer>
 </div>
 

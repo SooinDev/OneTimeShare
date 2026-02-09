@@ -7,23 +7,38 @@
   <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div class="controls">
+  <button class="control-btn theme-toggle" id="themeToggle">🌙</button>
+  <div class="language-selector">
+    <button class="control-btn language-btn">
+      <span>🇰🇷</span><span>한국어</span>
+    </button>
+    <div class="language-dropdown">
+      <div class="language-option" data-lang="ko"><span>🇰🇷</span> 한국어</div>
+      <div class="language-option" data-lang="en"><span>🇺🇸</span> English</div>
+      <div class="language-option" data-lang="ja"><span>🇯🇵</span> 日本語</div>
+      <div class="language-option" data-lang="zh"><span>🇨🇳</span> 中文</div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <header>
-    <h1>🔒 일회성 데이터 공유</h1>
+    <h1 data-i18n="title">일회성 데이터 공유</h1>
   </header>
 
   <div class="view-container">
     <div class="success-icon">✓</div>
-    <h3>공유된 데이터</h3>
+    <h3 data-i18n="sharedDataTitle">공유된 데이터</h3>
 
-    <div class="warning-box">
-      ⚠️ 이 페이지를 떠나면 데이터가 영구적으로 삭제됩니다.
+    <div class="warning-box" data-i18n="sharedWarning">
+      이 페이지를 떠나면 데이터가 영구적으로 삭제됩니다.
     </div>
 
     <div th:if="${response.dataType != 'FILE'}" class="content-box">
       <div class="content-header">
         <span th:text="${response.dataType == 'PASSWORD' ? '비밀번호' : '텍스트'}"></span>
-        <button type="button" class="copy-content-btn" th:attr="data-content=${response.content}">
+        <button type="button" class="copy-content-btn" th:attr="data-content=${response.content}" data-i18n="copyBtn">
           복사
         </button>
       </div>
@@ -39,12 +54,13 @@
       <button type="button" class="download-btn"
               th:attr="data-filename=${response.fileName},
                                 data-filetype=${response.fileType},
-                                data-filedata=${response.fileData}">
+                                data-filedata=${response.fileData}"
+              data-i18n="downloadBtn">
         다운로드
       </button>
     </div>
 
-    <a href="/" class="secondary-btn">새 공유 만들기</a>
+    <a href="/" class="secondary-btn" data-i18n="newShareBtn">새 공유 만들기</a>
   </div>
 </div>
 
