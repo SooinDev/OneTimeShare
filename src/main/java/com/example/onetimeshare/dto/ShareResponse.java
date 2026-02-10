@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ShareResponse {
 
-    private String tokend;
+    private String token;
 
     private String shareUrl;
 
